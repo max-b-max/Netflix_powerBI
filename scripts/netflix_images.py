@@ -5,9 +5,8 @@ import json
 from dotenv import load_dotenv
 import os
 
-# ---------------------------------------
+
 # CONFIGURATION
-# ---------------------------------------
 
 load_dotenv()
 TMDB_KEY = os.getenv("api")
@@ -18,9 +17,7 @@ if not TMDB_KEY:
 IMAGE_BASE = "https://image.tmdb.org/t/p/w500"
 
 
-# ---------------------------------------
 # REQUÊTES TMDB
-# ---------------------------------------
 
 async def fetch_json(session, url):
     try:
@@ -42,9 +39,7 @@ async def search_person(session, name):
     return IMAGE_BASE + profile if profile else None
 
 
-# ---------------------------------------
 # TRAITEMENT CAST
-# ---------------------------------------
 
 async def process_people(input_file, output_file, column_name):
     print(f"\n👥 Traitement {input_file}...\n")
@@ -80,9 +75,7 @@ async def process_one_person(session, name):
     }
 
 
-# ---------------------------------------
-# IMAGE (anciennement main)
-# ---------------------------------------
+# IMAGE
 
 async def image():
     print("🚀 Début du traitement CAST...\n")
